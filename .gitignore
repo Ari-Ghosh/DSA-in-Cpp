@@ -1,0 +1,9 @@
+## Data Structure And Algorithms ##
+*.exe
+*.exe~
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
