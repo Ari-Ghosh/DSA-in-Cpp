@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int isPoss(int arr[], int n, int m, int mid){
+bool isPoss(int arr[], int n, int m, int mid){
     int studentReq = 1;
     int curr_sum = 0;
 
