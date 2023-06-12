@@ -74,3 +74,4 @@ int main(){
     else
         cout<<"Not Palindrome Sentence"<<endl;
 }
+
