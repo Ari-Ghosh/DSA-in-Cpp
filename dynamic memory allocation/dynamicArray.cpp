@@ -24,7 +24,6 @@ int main() {
     }
 
     int ans = getSum(arr, n);
-
     cout << "answer is "<< ans << endl;
 
 //case 1
