@@ -1,26 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-string reverseString(string &str, int n, int i = 0){
-    if( n == 0 )
-        return "";
-    
-    else if ( n == 1 )
-        return str;
+void reverseString(string &str, int i, int j)
+{
+    if(i > j)
+        return ;
 
-    else{
-        swap(str[i++], str[n-1]);
-        return reverseString(str, n-1, i);
-    }
+    swap(str[i], str[j]);
+    i++;
+    j--;
+
+    reverseString(str, i, j);
 
 }
 
-int main(){
+int main()
+{
     string str = "AMRITSAR";
     int n = str.length();
 
-    cout<<reverseString(str, n);
-    
+    reverseString(str, 0, n-1);
+
+    cout<< str;
+
     return 0;
 }
