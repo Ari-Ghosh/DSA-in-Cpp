@@ -96,6 +96,85 @@ void deleteNode(Node* &head, int position){
     delete temp;
 }
 
+bool detectLoop(Node* head){
+
+    if(head == NULL)
+        return false;
+
+    map <Node*, bool> visited;
+
+    Node* temp = head;
+
+    while(temp != NULL){
+
+        if(visited[temp] == true){
+            return true;
+        }
+
+        visited[temp] = true;
+        temp = temp -> next;
+        
+    }
+    return false;
+}
+
+Node* floydLoop(Node* head) {
+
+    if(head == NULL)
+        return NULL;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while(slow != NULL && fast !=NULL) {
+        
+        fast = fast -> next;
+        if(fast != NULL) {
+            fast = fast -> next;
+        }
+
+        slow = slow -> next;
+
+        if(slow == fast) {
+            cout << "present at " << slow -> data << endl;
+            return slow;
+        }
+    }
+
+    return NULL;
+
+}
+
+Node* getStartLoop(Node* head){
+    if(head == NULL)
+        return NULL;
+
+    Node* intersection = floydLoop(head);
+    Node* slow = head;
+
+    while(slow != intersection){
+        slow = slow -> next;
+        intersection = intersection -> next;
+    }
+
+    return slow;
+}
+
+void removeLoop( Node* &head ){
+    if( head == NULL )
+        return ;
+
+    Node* start = getStartLoop(head);
+
+    Node* temp = start;
+
+    while(temp -> next != start){
+        temp = temp -> next;
+    }
+
+    temp -> next = NULL;
+}
+
 int main(){
     //created a new node
     Node* node1 = new Node(10);
