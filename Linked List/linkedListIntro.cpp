@@ -199,4 +199,39 @@ int main(){
     printTraverse(head);
     cout<<endl;
 
+    Node* head = node1; 
+    Node* tail = node1;
+
+    tail -> next = head ->next;
+
+    cout << "head " << head -> data << endl;
+    cout << "tail " << tail -> data << endl;
+    //print(head);
+
+    if(floydLoop(head) != NULL) {
+        cout << "Cycle is present " << endl;
+    }
+    else
+    {
+        cout << "no cycle" << endl;
+    }
+
+    Node* loop = getStartLoop(head);
+
+    cout << "loop starts at " << loop -> data  << endl;
+
+    removeLoop(head);
+    printTraverse(head);
+
+    /*
+    print(head);
+
+    if(isCircularList(head)) {
+        cout << " Linked List is Circular in nature" << endl;
+    }
+    else{
+        cout << "Linked List is not Circular " << endl;
+    }
+    */
+
 }
